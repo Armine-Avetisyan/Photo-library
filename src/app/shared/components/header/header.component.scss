@@ -1,0 +1,22 @@
+.header-container {
+  height: 80px;
+  display: flex;
+  justify-content: center ;
+  align-items: center;
+
+  button {
+    width: 150px;
+    height: 40px;
+    margin: 0 10px;
+    border-radius: 5px;
+    color: darkblue;
+    font-size: 12px;
+    &:hover{
+      opacity: 0.7;
+    }
+  }
+}
+
+.active{
+  background-color: darkgrey;
+}

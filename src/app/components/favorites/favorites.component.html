@@ -1,0 +1,8 @@
+<div class="img-container">
+  <mat-grid-list cols="6" rowHeight="200px" [gutterSize]="'10px'" >
+    <mat-grid-tile colspan="2"
+                   *ngFor="let photo of favoriteData">
+      <app-photo-card [photo]="photo" path="/photos"></app-photo-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
