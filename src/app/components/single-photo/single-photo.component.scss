@@ -1,24 +1,29 @@
-.img-container {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  img{
-    width: 50%;
-    height: 50%;
-  }
-}
+.single-photo-container{
+  .img-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
 
-.btn-container{
-  text-align: center;
-  margin-top: 20px;
-  button{
-    width: 300px;
-    padding: 10px;
-    border-radius: 5px;
-    color: darkblue;
-    font-size: 20px;
-    &:hover{
-      opacity: 0.7;
+    img{
+      width: 50%;
+      height: 50%;
+    }
+  }
+
+  .btn-container{
+    text-align: center;
+    margin-top: 20px;
+
+    button{
+      width: 300px;
+      padding: 10px;
+      border-radius: 5px;
+      color: darkblue;
+      font-size: 20px;
+
+      &:hover{
+        opacity: 0.7;
+      }
     }
   }
 }

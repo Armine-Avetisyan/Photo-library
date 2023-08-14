@@ -33,13 +33,18 @@ export class PhotosComponent implements OnInit {
   };
 
   ngOnInit(): void {
-    this.photoService.photos$.pipe(untilDestroyed(this)).subscribe(result => {
-      this.photosData = [...this.photosData, ...result];
-      this.mapFavorites();
-    });
+    this.subscribeToPhotos();
+    this.getPhotos();
+    this.setFavorites();
+  };
+
+  getPhotos() {
     this.photoService.getPhotos(this.page, this.itemsPerPage);
+  };
+
+  setFavorites() {
     this.favoritesArray = this.photoService.getFavorites();
-  }
+  };
 
   mapFavorites() {
     const favoritesArray = this.photoService.getFavorites();
@@ -53,12 +58,21 @@ export class PhotosComponent implements OnInit {
 
   addToFavorite(photo: IPhoto) {
     if (!photo.isFavorite) {
-      const photoInfo = {...photo, isFavorite:true};
       this.favoritesArray.push(photo);
       this.storageService.saveData('favoritesArray', this.favoritesArray);
       this.mapFavorites();
     }
+  };
 
-  }
+  photoTrackBy(index:number, photo: IPhoto) {
+    return photo.id;
+  };
 
+  subscribeToPhotos() {
+    this.photoService.photos$.pipe(untilDestroyed(this)).subscribe(result => {
+      this.photosData = [...this.photosData, ...result];
+      this.mapFavorites();
+    });
+
+  };
 }

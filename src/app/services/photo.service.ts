@@ -4,7 +4,9 @@ import {map, delay, finalize,} from 'rxjs/operators';
 import {PhotoDataService} from './photo-data.service';
 import {IPhoto} from '../interfaces/photo.interface';
 import {StorageService} from '../shared/services/storage.service';
+import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 
+@UntilDestroy()
 @Injectable({
   providedIn: 'root'
 })
@@ -24,6 +26,7 @@ export class PhotoService {
   getPhotos(page: number, itemsPerPage: number): void {
     this.photosLoading.next(true);
     this.photoDataService.getPhotos().pipe(
+      untilDestroyed(this),
       delay(500),
       map(photos => {
         const startFrom = page === 1 ? 0 : --page*itemsPerPage;
@@ -34,6 +37,6 @@ export class PhotoService {
   }
 
   getFavorites() {
-    return JSON.parse(this.storageService.getData('favoritesArray') as any);
+    return JSON.parse(this.storageService.getData('favoritesArray') as any) || [];
   }
 }

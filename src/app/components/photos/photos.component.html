@@ -1,8 +1,8 @@
 <div class="img-container" (scroll)="onScroll($event)" >
   <div class="grid-list-container">
-    <mat-grid-list cols="6" rowHeight="200px" [gutterSize]="'10px'" >
-      <mat-grid-tile colspan="2" class="grid-title"
-                     *ngFor="let photo of photosData">
+    <mat-grid-list cols="6" rowHeight="200px">
+      <mat-grid-tile [colspan]="2" class="grid-title"
+                     *ngFor="let photo of photosData; trackBy: photoTrackBy">
         <app-photo-card [photo]="photo" (selected)="addToFavorite($event)"></app-photo-card>
       </mat-grid-tile>
     </mat-grid-list>

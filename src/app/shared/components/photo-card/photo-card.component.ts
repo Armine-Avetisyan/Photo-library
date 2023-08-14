@@ -1,11 +1,12 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {IPhoto} from '../../../interfaces/photo.interface';
 import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-photo-card',
   templateUrl: './photo-card.component.html',
-  styleUrls: ['./photo-card.component.scss']
+  styleUrls: ['./photo-card.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PhotoCardComponent implements OnInit {
   @Input() photo!: IPhoto;
