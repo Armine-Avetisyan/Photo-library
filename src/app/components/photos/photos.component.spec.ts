@@ -6,7 +6,8 @@ import { PhotoService } from '../../services/photo.service';
 import { StorageService } from '../../shared/services/storage.service';
 import { IPhoto } from '../../interfaces/photo.interface';
 import { PhotoMockData } from '../../../mocks/photo-mock-data';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 describe('PhotosComponent', () => {
   let component: PhotosComponent;
@@ -18,10 +19,11 @@ describe('PhotosComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ PhotosComponent ],
       imports: [
-        HttpClientTestingModule
+        HttpClientTestingModule,
+        MatGridListModule,
+        MatProgressSpinnerModule
       ],
       providers: [PhotoService],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents();
 

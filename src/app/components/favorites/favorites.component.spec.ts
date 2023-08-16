@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FavoritesComponent } from './favorites.component';
 import {HttpClientTestingModule} from "@angular/common/http/testing";
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 describe('FavoritesComponent', () => {
   let component: FavoritesComponent;
@@ -9,9 +9,8 @@ describe('FavoritesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FavoritesComponent ],
-      imports: [HttpClientTestingModule],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA]
+      declarations: [ FavoritesComponent],
+      imports: [HttpClientTestingModule, MatGridListModule],
     })
     .compileComponents();
 

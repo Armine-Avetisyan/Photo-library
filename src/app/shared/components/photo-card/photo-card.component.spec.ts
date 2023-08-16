@@ -4,14 +4,12 @@ import { PhotoCardComponent } from './photo-card.component';
 import { PhotoMockData } from '../../../../mocks/photo-mock-data';
 import { IPhoto } from '../../../interfaces/photo.interface';
 import { Router } from '@angular/router';
-import Spy = jasmine.Spy;
 import { EventEmitter } from '@angular/core';
 
 describe('PhotoCardComponent', () => {
   let component: PhotoCardComponent;
   let fixture: ComponentFixture<PhotoCardComponent>;
   let router: Router;
-
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
