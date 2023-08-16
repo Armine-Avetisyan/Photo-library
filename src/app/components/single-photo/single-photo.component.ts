@@ -23,6 +23,10 @@ export class SinglePhotoComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.getSinglePhoto();
+  }
+
+  getSinglePhoto() {
     this.activatedRoute.paramMap.pipe(untilDestroyed(this)).subscribe(param => {
       this.photoId = param.get('id');
       this.favoritesArray = this.photoService.getFavorites();

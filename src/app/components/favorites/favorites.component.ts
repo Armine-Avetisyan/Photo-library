@@ -12,7 +12,10 @@ export class FavoritesComponent implements OnInit {
   constructor( private photoService: PhotoService) { }
 
   ngOnInit(): void {
-    this.favoriteData = this.photoService.getFavorites();
+    this.getFavorites();
   }
 
+  getFavorites() {
+    this.favoriteData = this.photoService.getFavorites();
+  }
 }

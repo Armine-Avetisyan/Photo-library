@@ -1,4 +1,4 @@
-<div class="img-wrapper" (click)="onSelect(photo)">
+<div class="img-wrapper" (click)="onSelect(photo)" *ngIf="photo">
   <img src="{{photo.download_url}}" alt="" class="img">
   <div *ngIf="photo.isFavorite" class="icon-wrapper">
     <i class="fa fa-heart icon"></i>
